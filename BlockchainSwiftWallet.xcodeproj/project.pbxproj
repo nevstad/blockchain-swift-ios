@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		971F92172267377D0088522D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92162267377D0088522D /* AppDelegate.swift */; };
+		971F92192267377D0088522D /* WalletSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92182267377D0088522D /* WalletSummaryViewController.swift */; };
+		971F921E2267377D0088522D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971F921C2267377D0088522D /* Main.storyboard */; };
+		971F92202267377D0088522D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 971F921F2267377D0088522D /* Assets.xcassets */; };
+		971F92232267377D0088522D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971F92212267377D0088522D /* LaunchScreen.storyboard */; };
+		971F922E2267377D0088522D /* BlockchainSwiftWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F922D2267377D0088522D /* BlockchainSwiftWalletTests.swift */; };
+		971F92392267377D0088522D /* BlockchainSwiftWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92382267377D0088522D /* BlockchainSwiftWalletUITests.swift */; };
+		971F929C2271C3AC0088522D /* ECDSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92882271C3AC0088522D /* ECDSA.swift */; };
+		971F929D2271C3AC0088522D /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92892271C3AC0088522D /* SHA.swift */; };
+		971F929E2271C3AC0088522D /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928B2271C3AC0088522D /* Block.swift */; };
+		971F929F2271C3AC0088522D /* TransactionOutputReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928C2271C3AC0088522D /* TransactionOutputReference.swift */; };
+		971F92A02271C3AC0088522D /* TransactionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928D2271C3AC0088522D /* TransactionInput.swift */; };
+		971F92A12271C3AC0088522D /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928E2271C3AC0088522D /* Blockchain.swift */; };
+		971F92A22271C3AC0088522D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928F2271C3AC0088522D /* Transaction.swift */; };
+		971F92A32271C3AC0088522D /* TransationOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92902271C3AC0088522D /* TransationOutput.swift */; };
+		971F92A42271C3AC0088522D /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92912271C3AC0088522D /* Serialization.swift */; };
+		971F92A52271C3AC0088522D /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92932271C3AC0088522D /* MessageSender.swift */; };
+		971F92A62271C3AC0088522D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92942271C3AC0088522D /* Messages.swift */; };
+		971F92A72271C3AC0088522D /* MessageListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92952271C3AC0088522D /* MessageListener.swift */; };
+		971F92A82271C3AC0088522D /* NodeAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92962271C3AC0088522D /* NodeAddress.swift */; };
+		971F92A92271C3AC0088522D /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92972271C3AC0088522D /* Node.swift */; };
+		971F92AA2271C3AC0088522D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92992271C3AC0088522D /* Wallet.swift */; };
+		971F92AB2271C3AC0088522D /* ProofOfWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F929B2271C3AC0088522D /* ProofOfWork.swift */; };
+		971F92AF227460220088522D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92AE227460220088522D /* WalletViewController.swift */; };
+		971F92B122764D290088522D /* NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92B022764D290088522D /* NodeViewController.swift */; };
+		97AF6414227655C300CC8AEA /* GenericGroupedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */; };
+		97AF64172278443E00CC8AEA /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */; };
+		97AF6419227850A500CC8AEA /* WalletNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6418227850A500CC8AEA /* WalletNotifications.swift */; };
+		97AF641B22785D8D00CC8AEA /* UnspentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		971F922A2267377D0088522D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 971F920B2267377D0088522D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 971F92122267377D0088522D;
+			remoteInfo = BlockchainSwiftWallet;
+		};
+		971F92352267377D0088522D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 971F920B2267377D0088522D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 971F92122267377D0088522D;
+			remoteInfo = BlockchainSwiftWallet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		971F92132267377D0088522D /* BlockchainSwiftWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockchainSwiftWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		971F92162267377D0088522D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		971F92182267377D0088522D /* WalletSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSummaryViewController.swift; sourceTree = "<group>"; };
+		971F921D2267377D0088522D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		971F921F2267377D0088522D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		971F92222267377D0088522D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		971F92242267377D0088522D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		971F92292267377D0088522D /* BlockchainSwiftWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockchainSwiftWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		971F922D2267377D0088522D /* BlockchainSwiftWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainSwiftWalletTests.swift; sourceTree = "<group>"; };
+		971F922F2267377D0088522D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		971F92342267377D0088522D /* BlockchainSwiftWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockchainSwiftWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		971F92382267377D0088522D /* BlockchainSwiftWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainSwiftWalletUITests.swift; sourceTree = "<group>"; };
+		971F923A2267377D0088522D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		971F92882271C3AC0088522D /* ECDSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDSA.swift; sourceTree = "<group>"; };
+		971F92892271C3AC0088522D /* SHA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
+		971F928B2271C3AC0088522D /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		971F928C2271C3AC0088522D /* TransactionOutputReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionOutputReference.swift; sourceTree = "<group>"; };
+		971F928D2271C3AC0088522D /* TransactionInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionInput.swift; sourceTree = "<group>"; };
+		971F928E2271C3AC0088522D /* Blockchain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
+		971F928F2271C3AC0088522D /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		971F92902271C3AC0088522D /* TransationOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransationOutput.swift; sourceTree = "<group>"; };
+		971F92912271C3AC0088522D /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
+		971F92932271C3AC0088522D /* MessageSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSender.swift; sourceTree = "<group>"; };
+		971F92942271C3AC0088522D /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		971F92952271C3AC0088522D /* MessageListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListener.swift; sourceTree = "<group>"; };
+		971F92962271C3AC0088522D /* NodeAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeAddress.swift; sourceTree = "<group>"; };
+		971F92972271C3AC0088522D /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		971F92992271C3AC0088522D /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		971F929B2271C3AC0088522D /* ProofOfWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProofOfWork.swift; sourceTree = "<group>"; };
+		971F92AE227460220088522D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		971F92B022764D290088522D /* NodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewController.swift; sourceTree = "<group>"; };
+		97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGroupedTableViewController.swift; sourceTree = "<group>"; };
+		97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		97AF6418227850A500CC8AEA /* WalletNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNotifications.swift; sourceTree = "<group>"; };
+		97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnspentTransaction.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		971F92102267377D0088522D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971F92262267377D0088522D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971F92312267377D0088522D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		971F920A2267377D0088522D = {
+			isa = PBXGroup;
+			children = (
+				971F92152267377D0088522D /* BlockchainSwiftWallet */,
+				971F922C2267377D0088522D /* BlockchainSwiftWalletTests */,
+				971F92372267377D0088522D /* BlockchainSwiftWalletUITests */,
+				971F92142267377D0088522D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		971F92142267377D0088522D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				971F92132267377D0088522D /* BlockchainSwiftWallet.app */,
+				971F92292267377D0088522D /* BlockchainSwiftWalletTests.xctest */,
+				971F92342267377D0088522D /* BlockchainSwiftWalletUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		971F92152267377D0088522D /* BlockchainSwiftWallet */ = {
+			isa = PBXGroup;
+			children = (
+				971F92862271C3AC0088522D /* BlockchainSwift */,
+				971F92162267377D0088522D /* AppDelegate.swift */,
+				97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */,
+				97AF6418227850A500CC8AEA /* WalletNotifications.swift */,
+				971F92AE227460220088522D /* WalletViewController.swift */,
+				971F92182267377D0088522D /* WalletSummaryViewController.swift */,
+				971F92B022764D290088522D /* NodeViewController.swift */,
+				97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */,
+				97AF6415227655CD00CC8AEA /* Storyboards */,
+				971F92242267377D0088522D /* Info.plist */,
+				971F921F2267377D0088522D /* Assets.xcassets */,
+			);
+			path = BlockchainSwiftWallet;
+			sourceTree = "<group>";
+		};
+		971F922C2267377D0088522D /* BlockchainSwiftWalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				971F922D2267377D0088522D /* BlockchainSwiftWalletTests.swift */,
+				971F922F2267377D0088522D /* Info.plist */,
+			);
+			path = BlockchainSwiftWalletTests;
+			sourceTree = "<group>";
+		};
+		971F92372267377D0088522D /* BlockchainSwiftWalletUITests */ = {
+			isa = PBXGroup;
+			children = (
+				971F92382267377D0088522D /* BlockchainSwiftWalletUITests.swift */,
+				971F923A2267377D0088522D /* Info.plist */,
+			);
+			path = BlockchainSwiftWalletUITests;
+			sourceTree = "<group>";
+		};
+		971F92862271C3AC0088522D /* BlockchainSwift */ = {
+			isa = PBXGroup;
+			children = (
+				971F92872271C3AC0088522D /* Crypto */,
+				971F928A2271C3AC0088522D /* Core */,
+				971F92922271C3AC0088522D /* Network */,
+				971F92982271C3AC0088522D /* Wallet */,
+				971F929A2271C3AC0088522D /* ProofOfWork */,
+			);
+			name = BlockchainSwift;
+			path = Frameworks/External/BlockchainSwift/Sources/BlockchainSwift;
+			sourceTree = SOURCE_ROOT;
+		};
+		971F92872271C3AC0088522D /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				971F92882271C3AC0088522D /* ECDSA.swift */,
+				971F92892271C3AC0088522D /* SHA.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		971F928A2271C3AC0088522D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				971F92912271C3AC0088522D /* Serialization.swift */,
+				971F928B2271C3AC0088522D /* Block.swift */,
+				971F928E2271C3AC0088522D /* Blockchain.swift */,
+				971F928F2271C3AC0088522D /* Transaction.swift */,
+				971F928D2271C3AC0088522D /* TransactionInput.swift */,
+				971F92902271C3AC0088522D /* TransationOutput.swift */,
+				971F928C2271C3AC0088522D /* TransactionOutputReference.swift */,
+				97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		971F92922271C3AC0088522D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				971F92942271C3AC0088522D /* Messages.swift */,
+				971F92932271C3AC0088522D /* MessageSender.swift */,
+				971F92952271C3AC0088522D /* MessageListener.swift */,
+				971F92962271C3AC0088522D /* NodeAddress.swift */,
+				971F92972271C3AC0088522D /* Node.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		971F92982271C3AC0088522D /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				971F92992271C3AC0088522D /* Wallet.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		971F929A2271C3AC0088522D /* ProofOfWork */ = {
+			isa = PBXGroup;
+			children = (
+				971F929B2271C3AC0088522D /* ProofOfWork.swift */,
+			);
+			path = ProofOfWork;
+			sourceTree = "<group>";
+		};
+		97AF6415227655CD00CC8AEA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				971F921C2267377D0088522D /* Main.storyboard */,
+				971F92212267377D0088522D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		971F92122267377D0088522D /* BlockchainSwiftWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 971F923D2267377D0088522D /* Build configuration list for PBXNativeTarget "BlockchainSwiftWallet" */;
+			buildPhases = (
+				971F920F2267377D0088522D /* Sources */,
+				971F92102267377D0088522D /* Frameworks */,
+				971F92112267377D0088522D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlockchainSwiftWallet;
+			productName = BlockchainSwiftWallet;
+			productReference = 971F92132267377D0088522D /* BlockchainSwiftWallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		971F92282267377D0088522D /* BlockchainSwiftWalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 971F92402267377D0088522D /* Build configuration list for PBXNativeTarget "BlockchainSwiftWalletTests" */;
+			buildPhases = (
+				971F92252267377D0088522D /* Sources */,
+				971F92262267377D0088522D /* Frameworks */,
+				971F92272267377D0088522D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				971F922B2267377D0088522D /* PBXTargetDependency */,
+			);
+			name = BlockchainSwiftWalletTests;
+			productName = BlockchainSwiftWalletTests;
+			productReference = 971F92292267377D0088522D /* BlockchainSwiftWalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		971F92332267377D0088522D /* BlockchainSwiftWalletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 971F92432267377D0088522D /* Build configuration list for PBXNativeTarget "BlockchainSwiftWalletUITests" */;
+			buildPhases = (
+				971F92302267377D0088522D /* Sources */,
+				971F92312267377D0088522D /* Frameworks */,
+				971F92322267377D0088522D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				971F92362267377D0088522D /* PBXTargetDependency */,
+			);
+			name = BlockchainSwiftWalletUITests;
+			productName = BlockchainSwiftWalletUITests;
+			productReference = 971F92342267377D0088522D /* BlockchainSwiftWalletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		971F920B2267377D0088522D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Magnus Nevstad";
+				TargetAttributes = {
+					971F92122267377D0088522D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					971F92282267377D0088522D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 971F92122267377D0088522D;
+					};
+					971F92332267377D0088522D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 971F92122267377D0088522D;
+					};
+				};
+			};
+			buildConfigurationList = 971F920E2267377D0088522D /* Build configuration list for PBXProject "BlockchainSwiftWallet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 971F920A2267377D0088522D;
+			productRefGroup = 971F92142267377D0088522D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				971F92122267377D0088522D /* BlockchainSwiftWallet */,
+				971F92282267377D0088522D /* BlockchainSwiftWalletTests */,
+				971F92332267377D0088522D /* BlockchainSwiftWalletUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		971F92112267377D0088522D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971F92232267377D0088522D /* LaunchScreen.storyboard in Resources */,
+				971F92202267377D0088522D /* Assets.xcassets in Resources */,
+				971F921E2267377D0088522D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971F92272267377D0088522D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971F92322267377D0088522D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		971F920F2267377D0088522D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971F929D2271C3AC0088522D /* SHA.swift in Sources */,
+				971F92A32271C3AC0088522D /* TransationOutput.swift in Sources */,
+				971F92A12271C3AC0088522D /* Blockchain.swift in Sources */,
+				97AF6419227850A500CC8AEA /* WalletNotifications.swift in Sources */,
+				971F92172267377D0088522D /* AppDelegate.swift in Sources */,
+				971F92A52271C3AC0088522D /* MessageSender.swift in Sources */,
+				971F92A72271C3AC0088522D /* MessageListener.swift in Sources */,
+				97AF64172278443E00CC8AEA /* UIViewController+Extensions.swift in Sources */,
+				971F929F2271C3AC0088522D /* TransactionOutputReference.swift in Sources */,
+				971F92A62271C3AC0088522D /* Messages.swift in Sources */,
+				971F92AF227460220088522D /* WalletViewController.swift in Sources */,
+				971F92A02271C3AC0088522D /* TransactionInput.swift in Sources */,
+				971F929E2271C3AC0088522D /* Block.swift in Sources */,
+				971F92A82271C3AC0088522D /* NodeAddress.swift in Sources */,
+				971F92A92271C3AC0088522D /* Node.swift in Sources */,
+				971F92AB2271C3AC0088522D /* ProofOfWork.swift in Sources */,
+				971F929C2271C3AC0088522D /* ECDSA.swift in Sources */,
+				97AF6414227655C300CC8AEA /* GenericGroupedTableViewController.swift in Sources */,
+				971F92B122764D290088522D /* NodeViewController.swift in Sources */,
+				971F92192267377D0088522D /* WalletSummaryViewController.swift in Sources */,
+				971F92A42271C3AC0088522D /* Serialization.swift in Sources */,
+				971F92AA2271C3AC0088522D /* Wallet.swift in Sources */,
+				97AF641B22785D8D00CC8AEA /* UnspentTransaction.swift in Sources */,
+				971F92A22271C3AC0088522D /* Transaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971F92252267377D0088522D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971F922E2267377D0088522D /* BlockchainSwiftWalletTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		971F92302267377D0088522D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971F92392267377D0088522D /* BlockchainSwiftWalletUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		971F922B2267377D0088522D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 971F92122267377D0088522D /* BlockchainSwiftWallet */;
+			targetProxy = 971F922A2267377D0088522D /* PBXContainerItemProxy */;
+		};
+		971F92362267377D0088522D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 971F92122267377D0088522D /* BlockchainSwiftWallet */;
+			targetProxy = 971F92352267377D0088522D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		971F921C2267377D0088522D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				971F921D2267377D0088522D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		971F92212267377D0088522D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				971F92222267377D0088522D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		971F923B2267377D0088522D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		971F923C2267377D0088522D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		971F923E2267377D0088522D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockchainSwiftWallet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevstad.BlockchainSwiftWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		971F923F2267377D0088522D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockchainSwiftWallet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevstad.BlockchainSwiftWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		971F92412267377D0088522D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockchainSwiftWalletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevstad.BlockchainSwiftWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlockchainSwiftWallet.app/BlockchainSwiftWallet";
+			};
+			name = Debug;
+		};
+		971F92422267377D0088522D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockchainSwiftWalletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevstad.BlockchainSwiftWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlockchainSwiftWallet.app/BlockchainSwiftWallet";
+			};
+			name = Release;
+		};
+		971F92442267377D0088522D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockchainSwiftWalletUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevstad.BlockchainSwiftWalletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BlockchainSwiftWallet;
+			};
+			name = Debug;
+		};
+		971F92452267377D0088522D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BlockchainSwiftWalletUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nevstad.BlockchainSwiftWalletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BlockchainSwiftWallet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		971F920E2267377D0088522D /* Build configuration list for PBXProject "BlockchainSwiftWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				971F923B2267377D0088522D /* Debug */,
+				971F923C2267377D0088522D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		971F923D2267377D0088522D /* Build configuration list for PBXNativeTarget "BlockchainSwiftWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				971F923E2267377D0088522D /* Debug */,
+				971F923F2267377D0088522D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		971F92402267377D0088522D /* Build configuration list for PBXNativeTarget "BlockchainSwiftWalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				971F92412267377D0088522D /* Debug */,
+				971F92422267377D0088522D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		971F92432267377D0088522D /* Build configuration list for PBXNativeTarget "BlockchainSwiftWalletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				971F92442267377D0088522D /* Debug */,
+				971F92452267377D0088522D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 971F920B2267377D0088522D /* Project object */;
+}

@@ -1,0 +1,3 @@
+[submodule "Frameworks/External/BlockchainSwift"]
+	path = Frameworks/External/BlockchainSwift
+	url = https://github.com/nevstad/blockchain-swift.git

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockchainSwiftWallet/FirstViewController.swift"
+            timestampString = "577197921.116155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "node(_:didReceiveTransactions:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockchainSwiftWallet.FirstViewController.node(_: BlockchainSwiftWallet.Node, didReceiveTransactions: Swift.Array&lt;BlockchainSwiftWallet.Transaction&gt;) -&gt; ()"
+                  moduleName = "BlockchainSwiftWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spz/Code/blockchain/BlockchainSwiftWallet/BlockchainSwiftWallet/FirstViewController.swift"
+                  timestampString = "577194644.997566"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BlockchainSwiftWallet.FirstViewController.node(_: BlockchainSwiftWallet.Node, didReceiveTransactions: Swift.Array&lt;BlockchainSwiftWallet.Transaction&gt;) -&gt; ()"
+                  moduleName = "BlockchainSwiftWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spz/Code/blockchain/BlockchainSwiftWallet/BlockchainSwiftWallet/FirstViewController.swift"
+                  timestampString = "577194644.999421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockchainSwiftWallet/FirstViewController.swift"
+            timestampString = "577197921.116475"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "node(_:didReceiveBlocks:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockchainSwiftWallet.FirstViewController.node(_: BlockchainSwiftWallet.Node, didReceiveBlocks: Swift.Array&lt;BlockchainSwiftWallet.Block&gt;) -&gt; ()"
+                  moduleName = "BlockchainSwiftWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spz/Code/blockchain/BlockchainSwiftWallet/BlockchainSwiftWallet/FirstViewController.swift"
+                  timestampString = "577194645.005353"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BlockchainSwiftWallet.FirstViewController.node(_: BlockchainSwiftWallet.Node, didReceiveBlocks: Swift.Array&lt;BlockchainSwiftWallet.Block&gt;) -&gt; ()"
+                  moduleName = "BlockchainSwiftWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spz/Code/blockchain/BlockchainSwiftWallet/BlockchainSwiftWallet/FirstViewController.swift"
+                  timestampString = "577194645.007445"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "73">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockchainSwiftWallet/FirstViewController.swift"
+            timestampString = "577197921.116531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "node(_:didReceiveBlocks:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockchainSwiftWallet/FirstViewController.swift"
+            timestampString = "577197921.1165791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "node(_:didReceiveTransactions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.298682"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "mineBlock()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockchainSwiftWallet.Node.mineBlock() -&gt; BlockchainSwiftWallet.Block"
+                  moduleName = "BlockchainSwiftWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spz/Code/blockchain/BlockchainSwiftWallet/Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+                  timestampString = "577918359.236316"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "1580">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (BlockchainSwiftWallet.Transaction) -&gt; Swift.Bool in BlockchainSwiftWallet.Node.mineBlock() -&gt; BlockchainSwiftWallet.Block"
+                  moduleName = "BlockchainSwiftWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spz/Code/blockchain/BlockchainSwiftWallet/Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+                  timestampString = "577918359.238333"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.2988009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "mineBlock()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.29889"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
+            landmarkName = "didReceiveTransactionsMessage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.298975"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "createTransaction(recipientAddress:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.299063"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "createTransaction(recipientAddress:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.2991379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "createTransaction(recipientAddress:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "578313917.299191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "createTransaction(recipientAddress:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
