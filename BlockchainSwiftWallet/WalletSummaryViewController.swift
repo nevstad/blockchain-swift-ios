@@ -81,11 +81,7 @@ class WalletSummaryViewController: UITableViewController {
             } catch Node.TxError.sourceEqualDestination {
                 showError(title: "You can't send to yourself")
             } catch {
-                let alert = UIAlertController(title: "Undefined Error", message: nil , preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    alert.dismiss(animated: true)
-                }))
-                self.present(alert, animated: true)
+                showError(title: "Undefined error")
             }
         }
     }
