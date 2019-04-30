@@ -87,28 +87,28 @@ class NodeViewController: UITableViewController {
     }
     
     private func showMempool() {
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
+        let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Transactions"
         viewController.data = [(sectionName: "Mempool", sectionData: mempool as [GenericCellDataProvider])]
         show(viewController, sender: self)
     }
     
     private func showUTXOs() {
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
+        let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "UTXOs"
-        viewController.data = [(sectionName: "Unspent outputs", sectionData: utxos as [GenericCellDataProvider])]
+        viewController.data = [(sectionName: "Unspent outputs", sectionData: utxos.map { UTXODataProvider(utxo: $0, showOwner: true) })]
         show(viewController, sender: self)
     }
     
     private func showBlocks() {
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
+        let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Blockchain"
         viewController.data = [(sectionName: "Blocks", sectionData: blocks as [GenericCellDataProvider])]
         show(viewController, sender: self)
     }
     
     private func showPeers() {
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
+        let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Network"
         viewController.data = [(sectionName: "Peers", sectionData: peers as [GenericCellDataProvider])]
         show(viewController, sender: self)

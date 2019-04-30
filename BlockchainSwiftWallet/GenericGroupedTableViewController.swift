@@ -8,15 +8,17 @@
 
 import UIKit
 
+typealias GenericTableViewData = [(sectionName: String, sectionData: [GenericCellDataProvider])]
+
 protocol GenericCellDataProvider {
     var title: String { get }
     var detail: String { get }
-    var data: [(sectionName: String, sectionData: [GenericCellDataProvider])]? { get }
+    var data: GenericTableViewData? { get }
 }
 
 class GenericGroupedTableViewController: UITableViewController {
 
-    var data: [(sectionName: String, sectionData: [GenericCellDataProvider])] = [] {
+    var data: GenericTableViewData = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -61,7 +63,7 @@ class GenericGroupedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = data[indexPath.section].sectionData[indexPath.row]
         if let data = item.data {
-            let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
+            let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
             viewController.data = data
             show(viewController, sender: self)
         }
@@ -74,7 +76,7 @@ extension Transaction: GenericCellDataProvider {
         return "😭 \(sum.from.isEmpty ? "Coinbase" : sum.from.hex)\n🤑 \(sum.to.hex)\n💰 \(sum.amount)"
     }
     var detail: String { return "txId: \(txId)" }
-    var data: [(sectionName: String, sectionData: [GenericCellDataProvider])]? { return nil }
+    var data: GenericTableViewData? { return nil }
 }
 
 extension Block: GenericCellDataProvider {
@@ -82,19 +84,45 @@ extension Block: GenericCellDataProvider {
         return "🕑 \(Date(timeIntervalSince1970: Double(timestamp)))\n💸 \(transactions.count)"
     }
     var detail: String { return "hash: \(hash.hex)" }
-    var data: [(sectionName: String, sectionData: [GenericCellDataProvider])]? {
+    var data: GenericTableViewData? {
         return [(sectionName: "Transactions", sectionData: transactions.map { $0 as GenericCellDataProvider })]
     }
-}
-
-extension UnspentTransaction: GenericCellDataProvider {
-    var title: String { return "💰 \(output.value)\n→ 💳 \(output.address.hex)" }
-    var detail: String { return outpoint.hash.hex }
-    var data: [(sectionName: String, sectionData: [GenericCellDataProvider])]? { return nil }
 }
 
 extension NodeAddress: GenericCellDataProvider {
     var title: String { return "🌐 \(host)" }
     var detail: String { return ":\(port)" }
-    var data: [(sectionName: String, sectionData: [GenericCellDataProvider])]? { return nil }
+    var data: GenericTableViewData? { return nil }
+}
+
+class SentTransactionCellDataProvider: GenericCellDataProvider {
+    let title: String
+    let detail: String
+    let data: GenericTableViewData? = nil
+    init(transaction: Transaction) {
+        let sum = transaction.summary()
+        self.title = "💰 \(sum.amount) → 💳 \(sum.to.hex) (change: \(sum.change))"
+        self.detail = transaction.txId
+    }
+}
+
+class ReceivedTransactionCellDataProvider: GenericCellDataProvider {
+    let title: String
+    let detail: String
+    let data: GenericTableViewData? = nil
+    init(transaction: Transaction) {
+        let sum = transaction.summary()
+        self.title = "💳 \(sum.from.isEmpty ? "Coinbase" : sum.from.hex)💰 → \(sum.amount)"
+        self.detail = transaction.txHash.hex
+    }
+}
+
+class UTXODataProvider: GenericCellDataProvider {
+    let title: String
+    let detail: String
+    let data: GenericTableViewData? = nil
+    init(utxo: UnspentTransaction, showOwner: Bool = false) {
+        self.title = "💰 \(utxo.output.value)\(showOwner ? "\n→ 💳 \(utxo.output.address.hex)" : "")"
+        self.detail = "txId: \(utxo.outpoint.hash.hex)"
+    }
 }

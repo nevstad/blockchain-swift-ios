@@ -31,6 +31,6 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             alert.dismiss(animated: true)
         }))
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
 }

@@ -34,9 +34,6 @@ class WalletViewController: UIViewController {
                 node = Node(address: NodeAddress.centralAddress())
                 firstTaken = true
             }
-            if node.address.isCentralNode {
-                let _ = node.mineBlock() // Give ourselves the first block reward
-            }
             node.delegate = self
         }
 
@@ -69,43 +66,63 @@ class WalletViewController: UIViewController {
         nodeViewController.peers = node.knownNodes
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool
-        nodeViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
+        nodeViewController.utxos = node.blockchain.utxos
 
-        let pending = node.mempool.filter { $0.summary().from == self.node.wallet.address }
-        let transactions = node.blockchain.findTransactions(for: self.node.wallet.address)
-        summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
         summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
         summaryViewController.address = node.wallet.address.hex
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
+        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
 }
 
 extension WalletViewController: NodeDelegate {
     func node(_ node: Node, didReceiveTransactions transactions: [Transaction]) {
-        updateViews()
+        nodeViewController.mempool = node.mempool
     }
 
     func node(_ node: Node, didCreateTransactions transactions: [Transaction]) {
-        updateViews()
+        nodeViewController.mempool = node.mempool
+        nodeViewController.utxos = node.blockchain.utxos
+        
+        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
+        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
-    func node(_ node: Node, didSendTransactions transactions: [Transaction]) {
-        updateViews()
-    }
+    func node(_ node: Node, didSendTransactions transactions: [Transaction]) {}
     
     func node(_ node: Node, didReceiveBlocks blocks: [Block]) {
-        updateViews()
+        nodeViewController.blocks = node.blockchain.blocks
+        nodeViewController.mempool = node.mempool
+        nodeViewController.utxos = node.blockchain.utxos
+        
+        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
+        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
-    func node(_ node: Node, didSendBlocks blocks: [Block]) {
-        updateViews()
-    }
+    func node(_ node: Node, didSendBlocks blocks: [Block]) {}
     
     func node(_ node: Node, didCreateBlocks blocks: [Block]) {
-        updateViews()
+        nodeViewController.blocks = node.blockchain.blocks
+        nodeViewController.mempool = node.mempool
+        nodeViewController.utxos = node.blockchain.utxos
+        
+        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
+        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
     func node(_ node: Node, didAddPeer: NodeAddress) {
-        updateViews()
+        nodeViewController.peers = node.knownNodes
     }
 }
