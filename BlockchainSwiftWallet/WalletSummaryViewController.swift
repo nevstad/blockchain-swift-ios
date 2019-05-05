@@ -14,6 +14,7 @@ class WalletSummaryViewController: UITableViewController {
     @IBOutlet weak var createTransationCell: UITableViewCell!
     @IBOutlet weak var transactionsCell: UITableViewCell!
     @IBOutlet weak var utxosCell: UITableViewCell!
+    @IBOutlet weak var exportWalletCell: UITableViewCell!
     
     
     override func viewDidLoad() {
@@ -38,6 +39,8 @@ class WalletSummaryViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         } else if tableView.cellForRow(at: indexPath) == utxosCell {
             showUTXOs()
+        } else if tableView.cellForRow(at: indexPath) == exportWalletCell {
+            showWalletExport()
         }
     }
     
@@ -130,5 +133,14 @@ class WalletSummaryViewController: UITableViewController {
     
     private func copyWalletAddress() {
         UIPasteboard.general.string = address
+    }
+    
+    private func showWalletExport() {
+        if let wvc = parent as? WalletViewController, let qrImage = wvc.node.wallet.generateQRCode() {
+            let viewController = storyboard!.instantiateViewController(withIdentifier: "WalletExport") as! WalletExportViewController
+            viewController.title = "Private Key"
+            viewController.qrImage = UIImage(ciImage: qrImage)
+            show(viewController, sender: self)
+        }
     }
 }

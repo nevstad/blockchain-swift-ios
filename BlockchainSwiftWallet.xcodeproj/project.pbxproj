@@ -35,6 +35,9 @@
 		97AF6414227655C300CC8AEA /* GenericGroupedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */; };
 		97AF64172278443E00CC8AEA /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */; };
 		97AF641B22785D8D00CC8AEA /* UnspentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */; };
+		97AF6426227F6FA100CC8AEA /* WalletExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6425227F6FA100CC8AEA /* WalletExportViewController.swift */; };
+		97AF6428227F709B00CC8AEA /* Wallet+QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6427227F709B00CC8AEA /* Wallet+QRCode.swift */; };
+		97AF642A227F75DB00CC8AEA /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6429227F75DB00CC8AEA /* AuthenticationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGroupedTableViewController.swift; sourceTree = "<group>"; };
 		97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnspentTransaction.swift; sourceTree = "<group>"; };
+		97AF6425227F6FA100CC8AEA /* WalletExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletExportViewController.swift; sourceTree = "<group>"; };
+		97AF6427227F709B00CC8AEA /* Wallet+QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+QRCode.swift"; sourceTree = "<group>"; };
+		97AF6429227F75DB00CC8AEA /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +147,11 @@
 			children = (
 				971F92862271C3AC0088522D /* BlockchainSwift */,
 				971F92162267377D0088522D /* AppDelegate.swift */,
+				97AF6429227F75DB00CC8AEA /* AuthenticationController.swift */,
 				97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */,
 				971F92AE227460220088522D /* WalletViewController.swift */,
 				971F92182267377D0088522D /* WalletSummaryViewController.swift */,
+				97AF6425227F6FA100CC8AEA /* WalletExportViewController.swift */,
 				971F92B022764D290088522D /* NodeViewController.swift */,
 				97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */,
 				97AF6415227655CD00CC8AEA /* Storyboards */,
@@ -224,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				971F92992271C3AC0088522D /* Wallet.swift */,
+				97AF6427227F709B00CC8AEA /* Wallet+QRCode.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -379,6 +388,7 @@
 				971F929D2271C3AC0088522D /* SHA.swift in Sources */,
 				971F92A32271C3AC0088522D /* TransationOutput.swift in Sources */,
 				971F92A12271C3AC0088522D /* Blockchain.swift in Sources */,
+				97AF6428227F709B00CC8AEA /* Wallet+QRCode.swift in Sources */,
 				971F92172267377D0088522D /* AppDelegate.swift in Sources */,
 				971F92A52271C3AC0088522D /* MessageSender.swift in Sources */,
 				971F92A72271C3AC0088522D /* MessageListener.swift in Sources */,
@@ -386,6 +396,7 @@
 				971F929F2271C3AC0088522D /* TransactionOutputReference.swift in Sources */,
 				971F92A62271C3AC0088522D /* Messages.swift in Sources */,
 				971F92AF227460220088522D /* WalletViewController.swift in Sources */,
+				97AF6426227F6FA100CC8AEA /* WalletExportViewController.swift in Sources */,
 				971F92A02271C3AC0088522D /* TransactionInput.swift in Sources */,
 				971F929E2271C3AC0088522D /* Block.swift in Sources */,
 				971F92A82271C3AC0088522D /* NodeAddress.swift in Sources */,
@@ -393,6 +404,7 @@
 				971F92AB2271C3AC0088522D /* ProofOfWork.swift in Sources */,
 				971F929C2271C3AC0088522D /* ECDSA.swift in Sources */,
 				97AF6414227655C300CC8AEA /* GenericGroupedTableViewController.swift in Sources */,
+				97AF642A227F75DB00CC8AEA /* AuthenticationController.swift in Sources */,
 				971F92B122764D290088522D /* NodeViewController.swift in Sources */,
 				971F92192267377D0088522D /* WalletSummaryViewController.swift in Sources */,
 				971F92A42271C3AC0088522D /* Serialization.swift in Sources */,
@@ -574,6 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Z544VH6DA;
 				INFOPLIST_FILE = BlockchainSwiftWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Z544VH6DA;
 				INFOPLIST_FILE = BlockchainSwiftWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
