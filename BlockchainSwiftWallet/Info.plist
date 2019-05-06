@@ -58,5 +58,7 @@
 	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>This app uses FaceID to authenticate the user for accessing Wallets.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the Camera to scan QR codes, in order to restore Wallets.</string>
 </dict>
 </plist>

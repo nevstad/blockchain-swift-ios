@@ -100,15 +100,15 @@ class WalletSummaryViewController: UITableViewController {
             do {
                 let _ = try wvc.node.createTransaction(recipientAddress: recipient, value: 1)
             } catch Node.TxError.insufficientBalance {
-                showError(title: "Insufficient balance")
+                showAlert(title: "Insufficient balance")
             } catch Node.TxError.invalidValue {
-                showError(title: "Invalid value")
+                showAlert(title: "Invalid value")
             } catch Node.TxError.unverifiedTransaction {
-                showError(title: "Unable to verify transaction")
+                showAlert(title: "Unable to verify transaction")
             } catch Node.TxError.sourceEqualDestination {
-                showError(title: "You can't send to yourself")
+                showAlert(title: "You can't send to yourself")
             } catch {
-                showError(title: "Undefined error")
+                showAlert(title: "Undefined error")
             }
         }
     }
