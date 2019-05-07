@@ -15,7 +15,6 @@
 		971F92232267377D0088522D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971F92212267377D0088522D /* LaunchScreen.storyboard */; };
 		971F922E2267377D0088522D /* BlockchainSwiftWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F922D2267377D0088522D /* BlockchainSwiftWalletTests.swift */; };
 		971F92392267377D0088522D /* BlockchainSwiftWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92382267377D0088522D /* BlockchainSwiftWalletUITests.swift */; };
-		971F929C2271C3AC0088522D /* ECDSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92882271C3AC0088522D /* ECDSA.swift */; };
 		971F929D2271C3AC0088522D /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92892271C3AC0088522D /* SHA.swift */; };
 		971F929E2271C3AC0088522D /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928B2271C3AC0088522D /* Block.swift */; };
 		971F929F2271C3AC0088522D /* TransactionOutputReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F928C2271C3AC0088522D /* TransactionOutputReference.swift */; };
@@ -34,11 +33,13 @@
 		971F92AF227460220088522D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92AE227460220088522D /* WalletViewController.swift */; };
 		971F92B122764D290088522D /* NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F92B022764D290088522D /* NodeViewController.swift */; };
 		97218D852280495E00D30F73 /* WalletQRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97218D842280495E00D30F73 /* WalletQRScannerController.swift */; };
+		97218D8D228180E900D30F73 /* Keygen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97218D8A228180E800D30F73 /* Keygen.swift */; };
+		97218D8E228180E900D30F73 /* Keysign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97218D8B228180E800D30F73 /* Keysign.swift */; };
+		97218D8F228180E900D30F73 /* QRCodeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97218D8C228180E900D30F73 /* QRCodeConvertible.swift */; };
 		97AF6414227655C300CC8AEA /* GenericGroupedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */; };
 		97AF64172278443E00CC8AEA /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */; };
 		97AF641B22785D8D00CC8AEA /* UnspentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */; };
 		97AF6426227F6FA100CC8AEA /* WalletExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6425227F6FA100CC8AEA /* WalletExportViewController.swift */; };
-		97AF6428227F709B00CC8AEA /* Wallet+QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6427227F709B00CC8AEA /* Wallet+QRCode.swift */; };
 		97AF642A227F75DB00CC8AEA /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF6429227F75DB00CC8AEA /* AuthenticationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +75,6 @@
 		971F92342267377D0088522D /* BlockchainSwiftWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockchainSwiftWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		971F92382267377D0088522D /* BlockchainSwiftWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainSwiftWalletUITests.swift; sourceTree = "<group>"; };
 		971F923A2267377D0088522D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		971F92882271C3AC0088522D /* ECDSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDSA.swift; sourceTree = "<group>"; };
 		971F92892271C3AC0088522D /* SHA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
 		971F928B2271C3AC0088522D /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		971F928C2271C3AC0088522D /* TransactionOutputReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionOutputReference.swift; sourceTree = "<group>"; };
@@ -93,11 +93,13 @@
 		971F92AE227460220088522D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		971F92B022764D290088522D /* NodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewController.swift; sourceTree = "<group>"; };
 		97218D842280495E00D30F73 /* WalletQRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletQRScannerController.swift; sourceTree = "<group>"; };
+		97218D8A228180E800D30F73 /* Keygen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keygen.swift; sourceTree = "<group>"; };
+		97218D8B228180E800D30F73 /* Keysign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keysign.swift; sourceTree = "<group>"; };
+		97218D8C228180E900D30F73 /* QRCodeConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeConvertible.swift; sourceTree = "<group>"; };
 		97AF6413227655C300CC8AEA /* GenericGroupedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericGroupedTableViewController.swift; sourceTree = "<group>"; };
 		97AF64162278443E00CC8AEA /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		97AF641A22785D8D00CC8AEA /* UnspentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnspentTransaction.swift; sourceTree = "<group>"; };
 		97AF6425227F6FA100CC8AEA /* WalletExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletExportViewController.swift; sourceTree = "<group>"; };
-		97AF6427227F709B00CC8AEA /* Wallet+QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wallet+QRCode.swift"; sourceTree = "<group>"; };
 		97AF6429227F75DB00CC8AEA /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,7 +203,9 @@
 		971F92872271C3AC0088522D /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				971F92882271C3AC0088522D /* ECDSA.swift */,
+				97218D8A228180E800D30F73 /* Keygen.swift */,
+				97218D8B228180E800D30F73 /* Keysign.swift */,
+				97218D8C228180E900D30F73 /* QRCodeConvertible.swift */,
 				971F92892271C3AC0088522D /* SHA.swift */,
 			);
 			path = Crypto;
@@ -238,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				971F92992271C3AC0088522D /* Wallet.swift */,
-				97AF6427227F709B00CC8AEA /* Wallet+QRCode.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -394,7 +397,6 @@
 				971F929D2271C3AC0088522D /* SHA.swift in Sources */,
 				971F92A32271C3AC0088522D /* TransationOutput.swift in Sources */,
 				971F92A12271C3AC0088522D /* Blockchain.swift in Sources */,
-				97AF6428227F709B00CC8AEA /* Wallet+QRCode.swift in Sources */,
 				971F92172267377D0088522D /* AppDelegate.swift in Sources */,
 				971F92A52271C3AC0088522D /* MessageSender.swift in Sources */,
 				971F92A72271C3AC0088522D /* MessageListener.swift in Sources */,
@@ -405,11 +407,12 @@
 				97AF6426227F6FA100CC8AEA /* WalletExportViewController.swift in Sources */,
 				971F92A02271C3AC0088522D /* TransactionInput.swift in Sources */,
 				9700586F2280222F00EF5F6F /* WalletImportViewController.swift in Sources */,
+				97218D8E228180E900D30F73 /* Keysign.swift in Sources */,
 				971F929E2271C3AC0088522D /* Block.swift in Sources */,
+				97218D8D228180E900D30F73 /* Keygen.swift in Sources */,
 				971F92A82271C3AC0088522D /* NodeAddress.swift in Sources */,
 				971F92A92271C3AC0088522D /* Node.swift in Sources */,
 				971F92AB2271C3AC0088522D /* ProofOfWork.swift in Sources */,
-				971F929C2271C3AC0088522D /* ECDSA.swift in Sources */,
 				97AF6414227655C300CC8AEA /* GenericGroupedTableViewController.swift in Sources */,
 				97218D852280495E00D30F73 /* WalletQRScannerController.swift in Sources */,
 				97AF642A227F75DB00CC8AEA /* AuthenticationController.swift in Sources */,
@@ -417,6 +420,7 @@
 				971F92192267377D0088522D /* WalletSummaryViewController.swift in Sources */,
 				971F92A42271C3AC0088522D /* Serialization.swift in Sources */,
 				971F92AA2271C3AC0088522D /* Wallet.swift in Sources */,
+				97218D8F228180E900D30F73 /* QRCodeConvertible.swift in Sources */,
 				97AF641B22785D8D00CC8AEA /* UnspentTransaction.swift in Sources */,
 				971F92A22271C3AC0088522D /* Transaction.swift in Sources */,
 			);

@@ -98,7 +98,7 @@ class WalletSummaryViewController: UITableViewController {
                 recipient = copiedAddress
             }
             do {
-                let _ = try wvc.node.createTransaction(recipientAddress: recipient, value: 1)
+                let _ = try wvc.node.createTransaction(sender: wvc.wallet, recipientAddress: recipient, value: 1)
             } catch Node.TxError.insufficientBalance {
                 showAlert(title: "Insufficient balance")
             } catch Node.TxError.invalidValue {
@@ -136,7 +136,7 @@ class WalletSummaryViewController: UITableViewController {
     }
     
     private func showWalletExport() {
-        if let wvc = parent as? WalletViewController, let qrImage = wvc.node.wallet.generateQRCode() {
+        if let wvc = parent as? WalletViewController, let qrImage = wvc.wallet.secPrivateKey.generateQRCode() {
             let viewController = storyboard!.instantiateViewController(withIdentifier: "WalletExport") as! WalletExportViewController
             viewController.title = "Private Key"
             viewController.qrImage = UIImage(ciImage: qrImage)

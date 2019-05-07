@@ -8,11 +8,11 @@
 
 import UIKit
 
-private var firstTaken = false
+private var centralNodeSetup = false
 
 class WalletViewController: UIViewController {
-    
     var node: Node!
+    var wallet: Wallet!
     
     @IBOutlet weak var viewSelector: UISegmentedControl!
     
@@ -28,13 +28,17 @@ class WalletViewController: UIViewController {
         super.viewDidLoad()
 
         if node == nil {
-            if firstTaken {
+            if centralNodeSetup {
                 node = Node(address: NodeAddress(host: "localhost", port: UInt32.random(in: 1000...9999)))
             } else {
                 node = Node(address: NodeAddress.centralAddress())
-                firstTaken = true
+                centralNodeSetup = true
             }
             node.delegate = self
+        }
+        
+        if wallet == nil {
+            wallet = Wallet(name: "Default Wallet")
         }
 
         setupViewSelector()
@@ -67,12 +71,13 @@ class WalletViewController: UIViewController {
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool
         nodeViewController.utxos = node.blockchain.utxos
+        nodeViewController.minerAddress = wallet.address
 
-        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
-        summaryViewController.address = node.wallet.address.hex
-        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
-        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
-        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.balance = node.blockchain.balance(for: wallet.address)
+        summaryViewController.address = wallet.address.hex
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == wallet.address }
+        let transactions = node.blockchain.findTransactions(for: wallet.address)
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
@@ -87,10 +92,10 @@ extension WalletViewController: NodeDelegate {
         nodeViewController.mempool = node.mempool
         nodeViewController.utxos = node.blockchain.utxos
         
-        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
-        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
-        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
-        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.balance = node.blockchain.balance(for: wallet.address)
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == wallet.address }
+        let transactions = node.blockchain.findTransactions(for: wallet.address)
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
@@ -101,10 +106,10 @@ extension WalletViewController: NodeDelegate {
         nodeViewController.mempool = node.mempool
         nodeViewController.utxos = node.blockchain.utxos
         
-        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
-        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
-        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
-        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.balance = node.blockchain.balance(for: wallet.address)
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == wallet.address }
+        let transactions = node.blockchain.findTransactions(for: wallet.address)
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
@@ -115,10 +120,10 @@ extension WalletViewController: NodeDelegate {
         nodeViewController.mempool = node.mempool
         nodeViewController.utxos = node.blockchain.utxos
         
-        summaryViewController.balance = node.blockchain.balance(for: node.wallet.address)
-        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: node.wallet.address)
-        let pending = node.mempool.filter { $0.summary().from == node.wallet.address }
-        let transactions = node.blockchain.findTransactions(for: node.wallet.address)
+        summaryViewController.balance = node.blockchain.balance(for: wallet.address)
+        summaryViewController.utxos = node.blockchain.findSpendableOutputs(for: wallet.address)
+        let pending = node.mempool.filter { $0.summary().from == wallet.address }
+        let transactions = node.blockchain.findTransactions(for: wallet.address)
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     

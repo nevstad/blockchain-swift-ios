@@ -45,6 +45,8 @@ class NodeViewController: UITableViewController {
         }
     }
     
+    var minerAddress: Data?
+    
     var peers: [NodeAddress] = [] {
         didSet {
             if viewIfLoaded != nil {
@@ -115,11 +117,15 @@ class NodeViewController: UITableViewController {
     }
     
     private func showMineBlock() {
+        guard let address = minerAddress else {
+            showAlert(title: "Miner address not set")
+            return
+        }
         if let wvc = parent as? WalletViewController {
             let alert = UIAlertController(title: "Mining block", message: "Please wait", preferredStyle: .alert)
             self.present(alert, animated: true) {
                 DispatchQueue.global().async {
-                    let _ = wvc.node.mineBlock()
+                    let _ = wvc.node.mineBlock(minerAddress: address)
                     DispatchQueue.main.async {
                         alert.dismiss(animated: true)
                     }
