@@ -26,10 +26,11 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    internal func showAlert(title: String?, message: String? = nil, button: String = "OK") {
+    internal func showAlert(title: String?, message: String? = nil, button: String = "OK", dismissed: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: button, style: .default, handler: { (action) in
             alert.dismiss(animated: true)
+            dismissed?()
         }))
         present(alert, animated: true)
     }

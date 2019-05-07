@@ -9,21 +9,22 @@
 import AVFoundation
 import UIKit
 
-protocol WalletQRScannerControllerDelegate {
-    func scannerController(_ scannerController: WalletQRScannerController, didScanPrivateKey privateKey: Data)
-    func scannerController(_ scannerController: WalletQRScannerController, failedScanningWithError error: ScanError)
+enum QRScannerError: Error {
+    case noReadableObject
+    case noStringValue
 }
 
-enum ScanError: Error {
-    case invalidPrivateKey
+protocol QRScannerControllerDelegate {
+    func scannerController(_ scannerController: QRScannerController, didScanString string: String)
+    func scannerController(_ scannerController: QRScannerController, failedScanningWithError error: QRScannerError)
 }
 
-class WalletQRScannerController: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+class QRScannerController: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession
     var previewLayer: AVCaptureVideoPreviewLayer
-    var delegate: WalletQRScannerControllerDelegate
+    var delegate: QRScannerControllerDelegate
     
-    init?(delegate: WalletQRScannerControllerDelegate) {
+    init?(delegate: QRScannerControllerDelegate) {
         self.delegate = delegate
         captureSession = AVCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -56,14 +57,16 @@ class WalletQRScannerController: NSObject, AVCaptureMetadataOutputObjectsDelegat
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         stopScanning()
         if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            if let privateKeyData = Data(hex: stringValue) {
-                delegate.scannerController(self, didScanPrivateKey: privateKeyData)
-            } else {
-                delegate.scannerController(self, failedScanningWithError: .invalidPrivateKey)
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
+                delegate.scannerController(self, failedScanningWithError: .noReadableObject)
+                return
             }
+            guard let stringValue = readableObject.stringValue else {
+                delegate.scannerController(self, failedScanningWithError: .noStringValue)
+                return
+            }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            delegate.scannerController(self, didScanString: stringValue)
         }
     }
     

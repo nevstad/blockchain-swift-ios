@@ -101,7 +101,7 @@ class SentTransactionCellDataProvider: GenericCellDataProvider {
     let data: GenericTableViewData? = nil
     init(transaction: Transaction) {
         let sum = transaction.summary()
-        self.title = "💰 \(sum.amount) → 💳 \(sum.to.hex) (change: \(sum.change))"
+        self.title = "💰 \(sum.amount)\n→ 💳 \(sum.to.hex) (change: \(sum.change))"
         self.detail = transaction.txId
     }
 }
@@ -112,7 +112,7 @@ class ReceivedTransactionCellDataProvider: GenericCellDataProvider {
     let data: GenericTableViewData? = nil
     init(transaction: Transaction) {
         let sum = transaction.summary()
-        self.title = "💳 \(sum.from.isEmpty ? "Coinbase" : sum.from.hex)💰 → \(sum.amount)"
+        self.title = "💳 \(sum.from.isEmpty ? "Coinbase" : sum.from.hex)\nm💰 → \(sum.amount)"
         self.detail = transaction.txHash.hex
     }
 }

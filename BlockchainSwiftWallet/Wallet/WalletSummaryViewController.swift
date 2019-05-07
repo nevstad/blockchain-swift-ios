@@ -25,9 +25,7 @@ class WalletSummaryViewController: UITableViewController {
         transactionsCell.detailTextLabel?.text = "\(transactions.sent.count + transactions.received.count + transactions.pending.count)"
         utxosCell.detailTextLabel?.text = "\(self.utxos.count)"
     }
-    
-    
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath) == createTransationCell {
             createTransaction()
@@ -36,7 +34,7 @@ class WalletSummaryViewController: UITableViewController {
             showTransactionHistory()
         } else if tableView.cellForRow(at: indexPath) == addressCell {
             copyWalletAddress()
-            tableView.deselectRow(at: indexPath, animated: true)
+            showWalletAddress()
         } else if tableView.cellForRow(at: indexPath) == utxosCell {
             showUTXOs()
         } else if tableView.cellForRow(at: indexPath) == exportWalletCell {
@@ -93,29 +91,17 @@ class WalletSummaryViewController: UITableViewController {
 
     private func createTransaction() {
         if let wvc = parent as? WalletViewController {
-            var recipient: Data = Data()
-            if let copiedAddressString = UIPasteboard.general.string, let copiedAddress = Data(hex: copiedAddressString) {
-                recipient = copiedAddress
-            }
-            do {
-                let _ = try wvc.node.createTransaction(sender: wvc.wallet, recipientAddress: recipient, value: 1)
-            } catch Node.TxError.insufficientBalance {
-                showAlert(title: "Insufficient balance")
-            } catch Node.TxError.invalidValue {
-                showAlert(title: "Invalid value")
-            } catch Node.TxError.unverifiedTransaction {
-                showAlert(title: "Unable to verify transaction")
-            } catch Node.TxError.sourceEqualDestination {
-                showAlert(title: "You can't send to yourself")
-            } catch {
-                showAlert(title: "Undefined error")
-            }
+            let viewController = storyboard!.instantiateViewController(withIdentifier: "CreateTransaction") as! CreateTransactionViewController
+            viewController.node = wvc.node
+            viewController.wallet = wvc.wallet
+            viewController.title = "New transaction"
+            show(viewController, sender: self)
         }
     }
     
     private func showTransactionHistory() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
-        viewController.title = "My Transactions"
+        viewController.title = "My transactions"
         viewController.data = [
             (sectionName: "Received", sectionData: transactions.received.map { ReceivedTransactionCellDataProvider(transaction: $0)}),
             (sectionName: "Sent", sectionData: transactions.sent.map { SentTransactionCellDataProvider(transaction: $0) }),
@@ -126,7 +112,7 @@ class WalletSummaryViewController: UITableViewController {
     
     private func showUTXOs() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
-        viewController.title = "Unspent Transactions"
+        viewController.title = "Unspent transactions"
         viewController.data = [(sectionName: "", sectionData: utxos.map { UTXODataProvider(utxo: $0) })]
         show(viewController, sender: self)
     }
@@ -135,10 +121,19 @@ class WalletSummaryViewController: UITableViewController {
         UIPasteboard.general.string = address
     }
     
+    private func showWalletAddress() {
+        if let qrImage = address.generateQRCode() {
+            let viewController = storyboard!.instantiateViewController(withIdentifier: "WalletExport") as! WalletExportViewController
+            viewController.title = "Wallet address"
+            viewController.qrImage = UIImage(ciImage: qrImage)
+            show(viewController, sender: self)
+        }
+    }
+    
     private func showWalletExport() {
         if let wvc = parent as? WalletViewController, let qrImage = wvc.wallet.secPrivateKey.generateQRCode() {
             let viewController = storyboard!.instantiateViewController(withIdentifier: "WalletExport") as! WalletExportViewController
-            viewController.title = "Private Key"
+            viewController.title = "Wallet private key"
             viewController.qrImage = UIImage(ciImage: qrImage)
             show(viewController, sender: self)
         }

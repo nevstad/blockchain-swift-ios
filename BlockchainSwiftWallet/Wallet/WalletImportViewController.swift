@@ -9,14 +9,14 @@
 import UIKit
 import AVFoundation
 
-class WalletImportViewController: UIViewController, WalletQRScannerControllerDelegate {
+class WalletImportViewController: UIViewController, QRScannerControllerDelegate {
     
-    var scannerController: WalletQRScannerController!
+    var scannerController: QRScannerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scannerController = WalletQRScannerController(delegate: self)
+        scannerController = QRScannerController(delegate: self)
         
         view.backgroundColor = UIColor.black
         view.layer.addSublayer(scannerController.previewLayer)
@@ -32,18 +32,17 @@ class WalletImportViewController: UIViewController, WalletQRScannerControllerDel
         scannerController.stopScanning()
     }
     
-    func scannerController(_ scannerController: WalletQRScannerController, didScanPrivateKey privateKey: Data) {
-        if let wallet = Wallet(name: "Restored", privateKeyData: privateKey) {
+    func scannerController(_ scannerController: QRScannerController, didScanString string: String) {
+        if let privateKeyData = Data(hex: string), let wallet = Wallet(name: "Restored", privateKeyData: privateKeyData) {
             showAlert(title: "Wallet restored", message: wallet.address.hex)
         } else {
             showAlert(title: "Invalid private key")
         }
     }
     
-    func scannerController(_ scannerController: WalletQRScannerController, failedScanningWithError error: ScanError) {
-        showAlert(title: "Invalid private key")
+    func scannerController(_ scannerController: QRScannerController, failedScanningWithError error: QRScannerError) {
+        showAlert(title: "Invalid QR Code")
     }
-
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
