@@ -30,17 +30,16 @@ class WalletViewController: UIViewController {
         if node == nil {
             if centralNodeSetup {
                 node = Node(address: NodeAddress(host: "localhost", port: UInt32.random(in: 1000...9999)))
+                wallet = Wallet(name: "Random wallet")
             } else {
                 node = Node(address: NodeAddress.centralAddress())
+                wallet = Wallet(name: "Central wallet")
                 centralNodeSetup = true
             }
             node.delegate = self
         }
+        title = wallet.name
         
-        if wallet == nil {
-            wallet = Wallet(name: "Default Wallet")
-        }
-
         setupViewSelector()
     }
     
