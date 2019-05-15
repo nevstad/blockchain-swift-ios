@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.3955621"
+            timestampString = "579617851.253593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "mineBlock(minerAddress:)"
             landmarkType = "7">
             <Locations>
@@ -186,13 +186,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.395978"
+            timestampString = "579617851.254498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "didReceiveTransactionsMessage(_:)"
-            landmarkType = "7">
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "Node"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.396271"
+            timestampString = "579617851.255087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "createTransaction(sender:recipientAddress:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.396559"
+            timestampString = "579617851.255644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "createTransaction(sender:recipientAddress:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.396842"
+            timestampString = "579617851.2562391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "createTransaction(sender:recipientAddress:value:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "disconnect()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Core/Blockchain.swift"
-            timestampString = "578928754.397126"
+            timestampString = "579097336.5379601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.397175"
+            timestampString = "579617851.256919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "createTransaction(sender:recipientAddress:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.397458"
+            timestampString = "579617851.257441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "createTransaction(sender:recipientAddress:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Core/Blockchain.swift"
-            timestampString = "578928754.39775"
+            timestampString = "579097336.5386029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.3977979"
+            timestampString = "579617851.257952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "mineBlock(minerAddress:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,13 +330,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
-            timestampString = "578928754.398078"
+            timestampString = "579617851.258467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "mineBlock(minerAddress:)"
-            landmarkType = "7">
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "Node"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Core/Blockchain.swift"
-            timestampString = "578928754.398367"
+            timestampString = "579097336.539274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -362,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Core/Blockchain.swift"
-            timestampString = "578928754.398412"
+            timestampString = "579097336.5393161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -378,7 +378,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Core/Blockchain.swift"
-            timestampString = "578928754.398453"
+            timestampString = "579097336.539355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -457,7 +457,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockchainSwiftWallet/Wallet/CreateTransactionViewController.swift"
-            timestampString = "578928754.398537"
+            timestampString = "579617851.2591619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -565,7 +565,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockchainSwiftWallet/Wallet/CreateTransactionViewController.swift"
-            timestampString = "578928754.3988611"
+            timestampString = "579617851.25925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -613,7 +613,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockchainSwiftWallet/Wallet/QRScannerViewController.swift"
-            timestampString = "578928754.399133"
+            timestampString = "579617851.259346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -629,13 +629,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockchainSwiftWallet/Wallet/QRScannerViewController.swift"
-            timestampString = "578928754.399183"
+            timestampString = "579617851.2594039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "579617851.2594579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "init(type:blockchain:mempool:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/MessageListener.swift"
+            timestampString = "579617851.259901"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "handleMessage(_:from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/MessageListener.swift"
+            timestampString = "579617851.259992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockchainSwiftWallet/Node/NodeViewController.swift"
+            timestampString = "579617851.26006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "blocks"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Frameworks/External/BlockchainSwift/Sources/BlockchainSwift/Network/Node.swift"
+            timestampString = "579617851.260113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "didReceiveGetBlocksMessage(_:from:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

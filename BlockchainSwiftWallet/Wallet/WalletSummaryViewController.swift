@@ -53,6 +53,7 @@ class WalletSummaryViewController: UITableViewController {
                 DispatchQueue.main.async {
                     let btc = Blockchain.Coin.coinValue(satoshis: self.balance)
                     self.balanceCell.textLabel?.text = String(format: "%.8f BTC", btc)
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -63,7 +64,7 @@ class WalletSummaryViewController: UITableViewController {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
                     self.addressCell.textLabel?.text = self.address
-                    self.tableView.reloadData()
+                    self.self.tableView.reloadData()
                 }
             }
         }
@@ -74,6 +75,7 @@ class WalletSummaryViewController: UITableViewController {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
                     self.utxosCell.detailTextLabel?.text = "\(self.utxos.count)"
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -84,6 +86,7 @@ class WalletSummaryViewController: UITableViewController {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
                     self.transactionsCell.detailTextLabel?.text = "\(self.transactions.sent.count + self.transactions.received.count + self.transactions.pending.count)"
+                    self.tableView.reloadData()
                 }
             }
         }

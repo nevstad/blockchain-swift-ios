@@ -9,7 +9,6 @@
 import UIKit
 
 class NodeViewController: UITableViewController {
-    @IBOutlet weak var nodeAddressCell: UITableViewCell!
     @IBOutlet weak var nodePeersCell: UITableViewCell!
     @IBOutlet weak var lastBlockHashCell: UITableViewCell!
     @IBOutlet weak var blocksCell: UITableViewCell!
@@ -24,9 +23,6 @@ class NodeViewController: UITableViewController {
             showUTXOs()
         } else if tableView.cellForRow(at: indexPath) == mempoolCell {
             showMempool()
-        } else if tableView.cellForRow(at: indexPath) == nodeAddressCell {
-            UIPasteboard.general.string = address?.urlString
-            tableView.deselectRow(at: indexPath, animated: true)
         } else if tableView.cellForRow(at: indexPath) == nodePeersCell {
             showPeers()
         } else if tableView.cellForRow(at: indexPath) == mineBlockCell {
@@ -35,23 +31,14 @@ class NodeViewController: UITableViewController {
         }
     }
     
-    var address: NodeAddress? {
-        didSet {
-            if viewIfLoaded != nil {
-                DispatchQueue.main.async {
-                    self.nodeAddressCell.textLabel?.text = self.address?.urlString
-                }
-            }
-        }
-    }
-    
     var minerAddress: Data?
     
-    var peers: [NodeAddress] = [] {
+    var peers: [String] = [] {
         didSet {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
                     self.nodePeersCell.detailTextLabel?.text = "\(self.peers.count)"
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -63,6 +50,7 @@ class NodeViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.lastBlockHashCell.textLabel?.text = self.blocks.last?.hash.hex
                     self.blocksCell.detailTextLabel?.text = "\(self.blocks.count)"
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -73,6 +61,7 @@ class NodeViewController: UITableViewController {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
                     self.utxosCell.detailTextLabel?.text = "\(self.utxos.count)"
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -83,6 +72,7 @@ class NodeViewController: UITableViewController {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
                     self.mempoolCell.detailTextLabel?.text = "\(self.mempool.count)"
+                    self.tableView.reloadData()
                 }
             }
         }

@@ -27,20 +27,32 @@ class WalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if node == nil {
-            if centralNodeSetup {
-                node = Node(address: NodeAddress(host: "localhost", port: UInt32.random(in: 1000...9999)))
-                wallet = Wallet(name: "Random wallet")
-            } else {
-                node = Node(address: NodeAddress.centralAddress())
-                wallet = Wallet(name: "Central wallet")
-                centralNodeSetup = true
-            }
-            node.delegate = self
-        }
+        #if targetEnvironment(simulator)
+        node = Node()
+        wallet = Wallet(name: "Random wallet")
+        #else
+        node = Node(type: .central)
+        wallet = Wallet(name: "Central wallet")
+        #endif
+        node.delegate = self
         title = wallet.name
         
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+
         setupViewSelector()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func willResignActive(_ notification: Notification) {
+        node.disconnect()
+    }
+    
+    @objc func willEnterForeground(_ notification: Notification) {
+        node.connect()
     }
     
     private func setupViewSelector() {
@@ -65,7 +77,7 @@ class WalletViewController: UIViewController {
     }
     
     private func updateViews() {
-        nodeViewController.address = node.address
+//        nodeViewController.address = node.address
         nodeViewController.peers = node.knownNodes
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool
@@ -126,7 +138,7 @@ extension WalletViewController: NodeDelegate {
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
-    func node(_ node: Node, didAddPeer: NodeAddress) {
+    func node(_ node: Node, didAddPeer: String) {
         nodeViewController.peers = node.knownNodes
     }
 }

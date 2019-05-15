@@ -89,9 +89,9 @@ extension Block: GenericCellDataProvider {
     }
 }
 
-extension NodeAddress: GenericCellDataProvider {
-    var title: String { return "🌐 \(host)" }
-    var detail: String { return ":\(port)" }
+extension String: GenericCellDataProvider {
+    var title: String { return "🌐 \(self)" }
+    var detail: String { return "Node network address" }
     var data: GenericTableViewData? { return nil }
 }
 
@@ -126,3 +126,4 @@ class UTXODataProvider: GenericCellDataProvider {
         self.detail = "txId: \(utxo.outpoint.hash.hex)"
     }
 }
+
