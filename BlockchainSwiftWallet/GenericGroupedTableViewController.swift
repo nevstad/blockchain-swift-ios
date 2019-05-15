@@ -112,7 +112,7 @@ class ReceivedTransactionCellDataProvider: GenericCellDataProvider {
     let data: GenericTableViewData? = nil
     init(transaction: Transaction) {
         let sum = transaction.summary()
-        self.title = "💳 \(sum.from.isEmpty ? "Coinbase" : sum.from.hex)\nm💰 → \(sum.amount)"
+        self.title = "📤 \(transaction.isCoinbase ? "Coinbase" : sum.from.readableHex)\n\(Blockchain.Coin.coinValueString(satoshis: sum.amount))"
         self.detail = transaction.txHash.hex
     }
 }
