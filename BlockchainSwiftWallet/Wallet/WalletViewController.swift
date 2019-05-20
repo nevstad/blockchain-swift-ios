@@ -35,6 +35,7 @@ class WalletViewController: UIViewController {
         wallet = Wallet(name: "Central wallet")
         #endif
         node.delegate = self
+        node.connect()
         title = wallet.name
         
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
@@ -78,7 +79,7 @@ class WalletViewController: UIViewController {
     
     private func updateViews() {
 //        nodeViewController.address = node.address
-        nodeViewController.peers = node.knownNodes
+        nodeViewController.peers = node.knownNodes.map { $0.urlString }
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool
         nodeViewController.utxos = node.blockchain.utxos
@@ -95,6 +96,10 @@ class WalletViewController: UIViewController {
 }
 
 extension WalletViewController: NodeDelegate {
+    func nodeDidConnectToNetwork(_ node: Node) {
+        
+    }
+    
     func node(_ node: Node, didReceiveTransactions transactions: [Transaction]) {
         nodeViewController.mempool = node.mempool
     }
@@ -138,7 +143,7 @@ extension WalletViewController: NodeDelegate {
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
-    func node(_ node: Node, didAddPeer: String) {
-        nodeViewController.peers = node.knownNodes
+    func node(_ node: Node, didAddPeer: NodeAddress) {
+        nodeViewController.peers = node.knownNodes.map { $0.urlString }
     }
 }
