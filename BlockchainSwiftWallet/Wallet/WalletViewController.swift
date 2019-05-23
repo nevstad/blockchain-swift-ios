@@ -79,7 +79,7 @@ class WalletViewController: UIViewController {
     
     private func updateViews() {
 //        nodeViewController.address = node.address
-        nodeViewController.peers = node.knownNodes.map { $0.urlString }
+        nodeViewController.peers = node.peers
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool
         nodeViewController.utxos = node.blockchain.utxos
@@ -144,6 +144,6 @@ extension WalletViewController: NodeDelegate {
     }
     
     func node(_ node: Node, didAddPeer: NodeAddress) {
-        nodeViewController.peers = node.knownNodes.map { $0.urlString }
+        nodeViewController.peers = node.peers
     }
 }

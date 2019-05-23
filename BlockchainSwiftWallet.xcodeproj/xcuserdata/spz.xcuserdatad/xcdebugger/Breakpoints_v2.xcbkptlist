@@ -191,8 +191,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "261"
             endingLineNumber = "261"
-            landmarkName = "Node"
-            landmarkType = "21">
+            landmarkName = "didReceiveVersionMessage(_:from:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -693,7 +693,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockchainSwiftWallet/Node/NodeViewController.swift"
-            timestampString = "580051558.479784"
+            timestampString = "580340966.580085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -725,7 +725,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockchainSwiftWallet/Wallet/WalletViewController.swift"
-            timestampString = "580051558.480203"
+            timestampString = "580340966.58018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"

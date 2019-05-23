@@ -106,9 +106,9 @@ class WalletSummaryViewController: UITableViewController {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "My transactions"
         viewController.data = [
-            (sectionName: "Received", sectionData: transactions.received.map { ReceivedTransactionCellDataProvider(transaction: $0)}),
-            (sectionName: "Sent", sectionData: transactions.sent.map { SentTransactionCellDataProvider(transaction: $0) }),
-                (sectionName: "Pending", sectionData: transactions.pending.map { SentTransactionCellDataProvider(transaction: $0) })
+            (sectionName: "Received", sectionData: transactions.received.map { TransactionCellDataProvider(transaction: $0, style: .sender)}),
+            (sectionName: "Sent", sectionData: transactions.sent.map { TransactionCellDataProvider(transaction: $0, style: .receiver) }),
+                (sectionName: "Pending", sectionData: transactions.pending.map { TransactionCellDataProvider(transaction: $0, style: .receiver) })
         ]
         show(viewController, sender: self)
     }

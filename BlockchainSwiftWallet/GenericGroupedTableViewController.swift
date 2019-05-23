@@ -70,50 +70,57 @@ class GenericGroupedTableViewController: UITableViewController {
     }
 }
 
-extension Transaction: GenericCellDataProvider {
-    var title: String {
-        let sum = summary()
-        return "😭 \(sum.from.isEmpty ? "Coinbase" : sum.from.hex)\n🤑 \(sum.to.hex)\n💰 \(sum.amount)"
+
+//
+// MARK: GenericCellDataProviders
+//
+
+class BlockCellDataProvider: GenericCellDataProvider {
+    var title: String
+    var detail: String
+    var data: GenericTableViewData?
+    
+    init(block: Block) {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .short
+        formatter.locale = Locale.current
+        let date = formatter.string(from: Date(timeIntervalSince1970: Double(block.timestamp)))
+        title =  "\(block.transactions.count) transactions"
+        detail = "\(block.hash.hex)\n\(date)"
+        data = [(sectionName: "Transactions", sectionData: block.transactions.map { TransactionCellDataProvider(transaction: $0, style: .both) })]
     }
-    var detail: String { return "txId: \(txId)" }
-    var data: GenericTableViewData? { return nil }
 }
 
-extension Block: GenericCellDataProvider {
-    var title: String {
-        return "🕑 \(Date(timeIntervalSince1970: Double(timestamp)))\n💸 \(transactions.count)"
-    }
-    var detail: String { return "hash: \(hash.hex)" }
-    var data: GenericTableViewData? {
-        return [(sectionName: "Transactions", sectionData: transactions.map { $0 as GenericCellDataProvider })]
-    }
-}
-
-extension String: GenericCellDataProvider {
-    var title: String { return "🌐 \(self)" }
+class PeerCellDataProvider: GenericCellDataProvider {
+    var title: String
     var detail: String { return "Node network address" }
-    var data: GenericTableViewData? { return nil }
-}
-
-class SentTransactionCellDataProvider: GenericCellDataProvider {
-    let title: String
-    let detail: String
-    let data: GenericTableViewData? = nil
-    init(transaction: Transaction) {
-        let sum = transaction.summary()
-        self.title = "💰 \(sum.amount)\n→ 💳 \(sum.to.hex) (change: \(sum.change))"
-        self.detail = transaction.txId
+    var data: GenericTableViewData? = nil
+    init(peer: NodeAddress) {
+        title = "🌐 \(peer.urlString)"
     }
 }
 
-class ReceivedTransactionCellDataProvider: GenericCellDataProvider {
+class TransactionCellDataProvider: GenericCellDataProvider {
+    enum DetailStyle {
+        case sender
+        case receiver
+        case both
+    }
     let title: String
     let detail: String
     let data: GenericTableViewData? = nil
-    init(transaction: Transaction) {
+    init(transaction: Transaction, style: DetailStyle = .sender) {
         let sum = transaction.summary()
-        self.title = "📤 \(transaction.isCoinbase ? "Coinbase" : sum.from.readableHex)\n\(Blockchain.Coin.coinValueString(satoshis: sum.amount))"
-        self.detail = transaction.txHash.hex
+        title = "💰 \(Blockchain.Coin.coinValue(satoshis: sum.amount))"
+        switch style {
+        case .sender:
+            detail = "📤 \(sum.from.hex)"
+        case .receiver:
+            detail = "📥 \(sum.to.hex)"
+        case .both:
+            detail = "📤 \(sum.from.hex)\n📥 \(sum.to.hex)"
+        }
     }
 }
 
@@ -122,8 +129,8 @@ class UTXODataProvider: GenericCellDataProvider {
     let detail: String
     let data: GenericTableViewData? = nil
     init(utxo: UnspentTransaction, showOwner: Bool = false) {
-        self.title = "💰 \(utxo.output.value)\(showOwner ? "\n→ 💳 \(utxo.output.address.hex)" : "")"
-        self.detail = "txId: \(utxo.outpoint.hash.hex)"
+        title = "💰 \(utxo.output.value)\(showOwner ? "\n→ 💳 \(utxo.output.address.hex)" : "")"
+        detail = "txId: \(utxo.outpoint.hash.hex)"
     }
 }
 

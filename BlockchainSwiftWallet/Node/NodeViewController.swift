@@ -33,7 +33,7 @@ class NodeViewController: UITableViewController {
     
     var minerAddress: Data?
     
-    var peers: [String] = [] {
+    var peers: [NodeAddress] = [] {
         didSet {
             if viewIfLoaded != nil {
                 DispatchQueue.main.async {
@@ -81,7 +81,7 @@ class NodeViewController: UITableViewController {
     private func showMempool() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Transactions"
-        viewController.data = [(sectionName: "Mempool", sectionData: mempool as [GenericCellDataProvider])]
+        viewController.data = [(sectionName: "Mempool", sectionData: mempool.map { TransactionCellDataProvider(transaction: $0) })]
         show(viewController, sender: self)
     }
     
@@ -95,14 +95,14 @@ class NodeViewController: UITableViewController {
     private func showBlocks() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Blockchain"
-        viewController.data = [(sectionName: "Blocks", sectionData: blocks as [GenericCellDataProvider])]
+        viewController.data = [(sectionName: "Blocks", sectionData: blocks.map { BlockCellDataProvider(block: $0) })]
         show(viewController, sender: self)
     }
     
     private func showPeers() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Network"
-        viewController.data = [(sectionName: "Peers", sectionData: peers as [GenericCellDataProvider])]
+        viewController.data = [(sectionName: "Peers", sectionData: peers.map { PeerCellDataProvider(peer: $0) })]
         show(viewController, sender: self)
     }
     
