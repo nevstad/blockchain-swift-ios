@@ -106,9 +106,9 @@ class WalletSummaryViewController: UITableViewController {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "My transactions"
         viewController.data = [
-            (sectionName: "Received", sectionData: transactions.received.map { TransactionCellDataProvider(transaction: $0, style: .sender)}),
-            (sectionName: "Sent", sectionData: transactions.sent.map { TransactionCellDataProvider(transaction: $0, style: .receiver) }),
-                (sectionName: "Pending", sectionData: transactions.pending.map { TransactionCellDataProvider(transaction: $0, style: .receiver) })
+            (name: "Received", data: transactions.received.map { TransactionCellDataProvider(transaction: $0, style: .sender)}),
+            (name: "Sent", data: transactions.sent.map { TransactionCellDataProvider(transaction: $0, style: .receiver) }),
+                (name: "Pending", data: transactions.pending.map { TransactionCellDataProvider(transaction: $0, style: .receiver) })
         ]
         show(viewController, sender: self)
     }
@@ -116,7 +116,7 @@ class WalletSummaryViewController: UITableViewController {
     private func showUTXOs() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Unspent transactions"
-        viewController.data = [(sectionName: "", sectionData: utxos.map { UTXODataProvider(utxo: $0) })]
+        viewController.data = [(name: "", data: utxos.map { UTXODataProvider(utxo: $0) })]
         show(viewController, sender: self)
     }
     

@@ -78,7 +78,6 @@ class WalletViewController: UIViewController {
     }
     
     private func updateViews() {
-//        nodeViewController.address = node.address
         nodeViewController.peers = node.peers
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool

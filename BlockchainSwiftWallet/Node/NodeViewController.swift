@@ -81,28 +81,28 @@ class NodeViewController: UITableViewController {
     private func showMempool() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Transactions"
-        viewController.data = [(sectionName: "Mempool", sectionData: mempool.map { TransactionCellDataProvider(transaction: $0) })]
+        viewController.data = [(name: "Mempool", data: mempool.map { TransactionCellDataProvider(transaction: $0) })]
         show(viewController, sender: self)
     }
     
     private func showUTXOs() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "UTXOs"
-        viewController.data = [(sectionName: "Unspent outputs", sectionData: utxos.map { UTXODataProvider(utxo: $0, showOwner: true) })]
+        viewController.data = [(name: "Unspent outputs", data: utxos.map { UTXODataProvider(utxo: $0, showOwner: true) })]
         show(viewController, sender: self)
     }
     
     private func showBlocks() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Blockchain"
-        viewController.data = [(sectionName: "Blocks", sectionData: blocks.map { BlockCellDataProvider(block: $0) })]
+        viewController.data = [(name: "Blocks", data: blocks.map { BlockCellDataProvider(block: $0) })]
         show(viewController, sender: self)
     }
     
     private func showPeers() {
         let viewController = storyboard!.instantiateViewController(withIdentifier: "GenericGroupedTableViewController") as! GenericGroupedTableViewController
         viewController.title = "Network"
-        viewController.data = [(sectionName: "Peers", sectionData: peers.map { PeerCellDataProvider(peer: $0) })]
+        viewController.data = [(name: "Peers", data: peers.map { PeerCellDataProvider(peer: $0) })]
         show(viewController, sender: self)
     }
     
