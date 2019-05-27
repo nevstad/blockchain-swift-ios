@@ -27,21 +27,18 @@ class WalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        #if targetEnvironment(simulator)
-        node = Node()
+        let state = Node.loadState()
+        node = Node(type: .peer, blockchain: state.blockchain, mempool: state.mempool)
         wallet = Wallet(name: "Random wallet")
-        #else
-        node = Node(type: .central)
-        wallet = Wallet(name: "Central wallet")
-        #endif
         node.delegate = self
         node.connect()
-        title = wallet.name
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
 
         setupViewSelector()
+        
+        showCreateWallet()
     }
     
     deinit {
@@ -50,6 +47,7 @@ class WalletViewController: UIViewController {
     
     @objc func willResignActive(_ notification: Notification) {
         node.disconnect()
+        node.saveState()
     }
     
     @objc func willEnterForeground(_ notification: Notification) {
@@ -78,6 +76,8 @@ class WalletViewController: UIViewController {
     }
     
     private func updateViews() {
+        title = wallet.name
+        
         nodeViewController.peers = node.peers
         nodeViewController.blocks = node.blockchain.blocks
         nodeViewController.mempool = node.mempool
@@ -92,6 +92,31 @@ class WalletViewController: UIViewController {
         summaryViewController.transactions = (sent: transactions.sent, received: transactions.received, pending: pending)
     }
     
+    func showWalletSelect() {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "WalletSelect") as? WalletSelectTableViewController {
+            vc.walletSelected = { wallet in
+                vc.dismiss(animated: true)
+                self.wallet = wallet
+                self.updateViews()
+            }
+            vc.modalPresentationStyle = .pageSheet
+            vc.isModalInPopover = true
+            navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
+        }
+    }
+    
+    func showCreateWallet() {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "WalletCreate") as? WalletCreateViewController {
+            vc.walletCreated = { wallet in
+                vc.dismiss(animated: true)
+                self.wallet = wallet
+                self.updateViews()
+            }
+            vc.modalPresentationStyle = .pageSheet
+            vc.isModalInPopover = true
+            navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
+        }
+    }
 }
 
 extension WalletViewController: NodeDelegate {

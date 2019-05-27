@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             green: .random(in: 0...1),
                                                             blue: .random(in: 0...1),
                                                             alpha: 1.0)
+        UIBarButtonItem.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         return true
     }
 

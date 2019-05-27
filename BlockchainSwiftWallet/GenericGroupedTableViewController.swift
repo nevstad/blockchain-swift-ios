@@ -77,6 +77,19 @@ class GenericGroupedTableViewController: UITableViewController {
 // MARK: GenericCellDataProviders
 //
 
+class SimpleCellDataProvider: GenericCellDataProvider {
+    var title: String
+    var detail: String
+    var data: GenericTableViewData? = nil
+    var dataTitle: String? = nil
+    init(title: String, detail: String, data: GenericTableViewData? = nil, dataTitle: String? = nil) {
+        self.title = title
+        self.detail = detail
+        self.data = data
+        self.dataTitle = dataTitle
+    }
+}
+
 class BlockCellDataProvider: GenericCellDataProvider {
     var title: String
     var detail: String
@@ -90,23 +103,17 @@ class BlockCellDataProvider: GenericCellDataProvider {
         let date = formatter.string(from: Date(timeIntervalSince1970: Double(block.timestamp)))
         title =  "\(block.transactions.count) transactions"
         detail = "\(date)"
+        var d = [GenericCellDataProvider]()
+        d.append(SimpleCellDataProvider(title: block.hash.hex, detail: "Hash"))
+        if !block.previousHash.isEmpty {
+            d.append(SimpleCellDataProvider(title: block.previousHash.hex, detail: "Previous hash"))
+        }
         data = [
-            (name: "Block info", data: [
-                SimpleCellDataProvider(title: block.hash.hex, detail: "Hash", data: nil, dataTitle: nil),
-                SimpleCellDataProvider(title: block.previousHash.hex.isEmpty ? "Genesis block, no previous hash" : block.previousHash.hex, detail: "Previous hash", data: nil, dataTitle: nil)
-                ]
-            ),
+            (name: "Block info", data: d),
             (name: "Transactions", data: block.transactions.map { TransactionCellDataProvider(transaction: $0, style: .both) })
         ]
         dataTitle = "Block"
     }
-}
-
-struct SimpleCellDataProvider: GenericCellDataProvider {
-    var title: String
-    var detail: String
-    var data: GenericTableViewData? = nil
-    var dataTitle: String? = nil
 }
 
 class PeerCellDataProvider: GenericCellDataProvider {
@@ -127,19 +134,31 @@ class TransactionCellDataProvider: GenericCellDataProvider {
     }
     let title: String
     let detail: String
-    let data: GenericTableViewData? = nil
-    var dataTitle: String? = nil
+    let data: GenericTableViewData?
+    var dataTitle: String? = "Transaction"
     init(transaction: Transaction, style: DetailStyle = .sender) {
         let sum = transaction.summary()
         title = "💰 \(Blockchain.Coin.coinValue(satoshis: sum.amount))"
         switch style {
         case .sender:
-            detail = "📤 \(transaction.isCoinbase ? "Coinbase" : sum.from.hex)"
+            detail = "📤 \(transaction.isCoinbase ? "Coinbase" : sum.from.hex)\n🆔 \(transaction.txId)"
         case .receiver:
-            detail = "📥 \(sum.to.hex)"
+            detail = "📥 \(sum.to.hex)\n🆔 \(transaction.txId)"
         case .both:
             detail = "📤 \(transaction.isCoinbase ? "Coinbase" : sum.from.hex)\n📥 \(sum.to.hex)"
         }
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .short
+        formatter.locale = Locale.current
+        let date = formatter.string(from: Date(timeIntervalSince1970: Double(transaction.lockTime)))
+        data = [ (name: "", data: [
+            SimpleCellDataProvider(title: transaction.txId, detail: "Transaction Id"),
+            SimpleCellDataProvider(title: date, detail: "Lock time"),
+            SimpleCellDataProvider(title: "\(transaction.isCoinbase ? "Coinbase" : sum.from.hex)", detail: "Sender"),
+            SimpleCellDataProvider(title: "\(sum.to.hex)", detail: "Receiver")
+            ])
+        ]
     }
 }
 
@@ -149,7 +168,8 @@ class UTXODataProvider: GenericCellDataProvider {
     let data: GenericTableViewData? = nil
     var dataTitle: String? = nil
     init(utxo: UnspentTransaction, showOwner: Bool = false) {
-        title = "💰 \(utxo.output.value)\(showOwner ? "\n💳 \(utxo.output.address.hex)" : "")"
-        detail = "txId: \(utxo.outpoint.hash.hex)"
+        title = "💰 \(utxo.output.value)"
+        detail = "\(showOwner ? "💳 \(utxo.output.address.hex)\n" : "")🆔 \(utxo.outpoint.hash.readableHex)"
     }
 }
+
