@@ -38,7 +38,7 @@ class WalletViewController: UIViewController {
 
         setupViewSelector()
         
-        showCreateWallet()
+        showCreateWallet(mode: .create(allowCancel: true))
     }
     
     deinit {
@@ -105,8 +105,9 @@ class WalletViewController: UIViewController {
         }
     }
     
-    func showCreateWallet() {
+    func showCreateWallet(mode: WalletCreateViewController.Mode) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "WalletCreate") as? WalletCreateViewController {
+            vc.mode = mode
             vc.walletCreated = { wallet in
                 vc.dismiss(animated: true)
                 self.wallet = wallet

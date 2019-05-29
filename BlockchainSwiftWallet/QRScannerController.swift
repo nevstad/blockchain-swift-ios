@@ -24,8 +24,8 @@ class QRScannerController: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     var previewLayer: AVCaptureVideoPreviewLayer
     var delegate: QRScannerControllerDelegate
     
-    init?(delegate: QRScannerControllerDelegate) {
-        self.delegate = delegate
+    init?(delegate aDelegate: QRScannerControllerDelegate) {
+        delegate = aDelegate
         captureSession = AVCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = .resizeAspectFill

@@ -12,27 +12,60 @@ protocol WalletCreateDelegate {
     func walletCreated(_ wallet: Wallet)
 }
 class WalletCreateViewController: UIViewController {
-    var delegate: WalletCreateDelegate?
-    var walletCreated: ((Wallet) -> Void)?
-    
     @IBOutlet weak var walletNameField: UITextField!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    enum Mode {
+        case create(allowCancel: Bool)
+        case restore(allowCancel: Bool, privateKey: Data)
+        case edit(wallet: Wallet)
+    }
+    
+    var delegate: WalletCreateDelegate?
+    var walletCreated: ((Wallet) -> Void)?
+    var mode: Mode?
     var existingWalletNames: [String] = []
+    var editWallet: Wallet?
+    var restorePrivateKey: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Create wallet"
+        if let mode = mode {
+            switch mode {
+            case .create(let allowCancel):
+                title = "Create wallet"
+                createButton.setTitle("Create", for: .normal)
+                if allowCancel {
+                    addCancelBarButtonItem()
+                }
+            case .edit(let wallet):
+                title = "Edit wallet"
+                createButton.setTitle("Save", for: .normal)
+                editWallet = wallet
+                addCancelBarButtonItem()
+            case .restore(let allowCancel, let privateKey):
+                title = "Restore wallet"
+                createButton.setTitle("Restore", for: .normal)
+                restorePrivateKey = privateKey
+                if allowCancel {
+                    addCancelBarButtonItem()
+                }
+            }
+        } else {
+            title = "Create wallet"
+            createButton.setTitle("Create", for: .normal)
+        }
         
+        existingWalletNames = Keygen.avalaibleKeyPairsNames()
+        walletNameField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    private func addCancelBarButtonItem() {
         let closeButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(close))
         closeButton.tintColor = .white
         navigationItem.rightBarButtonItems = [closeButton]
-
-        existingWalletNames = Keygen.avalaibleKeyPairsNames()
-        walletNameField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        validateInput("")
     }
     
     @objc func close() {
@@ -49,14 +82,36 @@ class WalletCreateViewController: UIViewController {
             errorLabel.text = "⚠️ You already have a wallet with that name"
         } else {
             createButton.isEnabled = !input.isEmpty
-            errorLabel.text = ""
+            errorLabel.text = input.isEmpty ? "Please enter a wallet name" : ""
         }
     }
     
     @IBAction func createWallet(_ sender: Any) {
-        if let walletName = walletNameField.text, let wallet = Wallet(name: walletName, storeInKeychain: true) {
-            delegate?.walletCreated(wallet)
-            walletCreated?(wallet)
+        if let walletName = walletNameField.text {
+            if let wallet = editWallet {
+                delegate?.walletCreated(wallet)
+                walletCreated?(wallet)
+            } else {
+                if let privateKey = restorePrivateKey {
+                    if let wallet = Wallet(name: walletName, privateKeyData: privateKey, storeInKeychain: true) {
+                        delegate?.walletCreated(wallet)
+                        walletCreated?(wallet)
+                    } else {
+                        showAlert(title: "Could not restore from the specified private key") {
+                            self.close()
+                        }
+                    }
+                } else {
+                    if let wallet = Wallet(name: walletName, storeInKeychain: true) {
+                        delegate?.walletCreated(wallet)
+                        walletCreated?(wallet)
+                    } else {
+                        showAlert(title: "There was an error generating your wallet") {
+                            self.close()
+                        }
+                    }
+                }
+            }
         }
     }
 }
